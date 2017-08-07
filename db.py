@@ -72,33 +72,13 @@ class Handler(object):
                     'properties.ctime.ctime': "MetaData modified " + datetime.now().strftime('%Y-%m-%d %H:%M:%S')}})
         except CursorNotFound as e:
             return "Error %s" % e
-        # else:
-        #     self.prop_ = {
-        #         'node': nodeCible,
-        #         'path': targetPath,
-        #         'parent': os.path.basename(os.path.split(targetPath)[0]),
-        #         'ancestor': [],
-        #         'accepts': [],
-        #         'provides': [],
-        #         'properties': {},
-        #     }
-        #     self.prop_['properties'] = self.getPropertiesDict()
-        #     self.prop_['properties']['mtime'] = {
-        #             "mtime": "Modified "+datetime.fromtimestamp(os.path.getmtime(targetPath)).strftime(
-        #                 "%Y-%m-%d %H:%M:%S"), "readOnly": "True"}
-        #     self.prop_['properties']['ctime'] = {
-        #             "ctime": "MetaData modified "+datetime.now().strftime('%Y-%m-%d %H:%M:%S'), "readOnly": "True"}
-        #     self.prop_['properties']['btime'] = {
-        #             "btime": "Creation date "+datetime.fromtimestamp(os.path.getctime(targetPath)).strftime(
-        #                 "%Y-%m-%d %H:%M:%S"), "readOnly": "True"}
-        #     self.prop_['properties'][cle] = donnee[cle]
-        #     self.insertDB(self.prop_)
 
-    def setViews(self, cible, accepts, provides):
+
+    def setViews(self, cible, parent, ancestor, accepts, provides):
         coll = self.connexion()
         # nodeCible = os.path.basename(cible)
-        if self.getNode(cible):
-            coll.update({'path': cible}, {"$set": {'accepts': accepts, 'provides': provides}})
+        if self.getNode(cible, parent, ancestor):
+            coll.update({'node': cible, 'parent': parent, 'ancestor': ancestor}, {"$set": {'accepts': accepts, 'provides': provides}})
 
 
 # a = Handler()

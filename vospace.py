@@ -4,7 +4,7 @@ import shutil
 import time
 from copy import deepcopy
 
-from XML.settings import fstodictionary
+from settings import fstodictionary
 from db import Handler as mydb
 from genericbackend import Backend
 from parser import Parser as xml
@@ -69,12 +69,15 @@ class Vospace(Backend):
             ancestor = []
         else:
             ancestor = dictionary['ancestor']
-        if not mydb().getNode(dictionary['cible'], dictionary['parent'], ancestor):
-            try:
-                os.makedirs(dictionary['path'])
-            except OSError as e:
-                return 'Directory creation failed. Error %s' % e
-
+        representation = mydb().getNode(dictionary['cible'], dictionary['parent'], ancestor)
+        if not representation:
+            if representation['busy'] == "False":
+                try:
+                    os.makedirs(dictionary['path'])
+                except OSError as e:
+                    return 'Directory creation failed. Error %s' % e
+            else:
+                return 'Node busy'
             if os.path.exists(dictionary['path']):
                 mydb().insertDB(fstodictionary(dictionary['path']))
                 self.setNode(dictionary['cible'], dictionary['parent'], ancestor, dictionary['properties'])
@@ -92,55 +95,26 @@ class Vospace(Backend):
             ancestor = []
         readOnly = mydb().getNode(target, parent, ancestor)
         if readOnly:
-            #properties
-            validator = {}
-            for keys, values in readOnly['properties'].items():
-                for k, v in values.items():
-                    validator[k] = v
-            # newProp = set(properties)
-            # oldProp = set(validator)
-            propDict = mydb().getPropertiesDict()
-            for key in set(properties).intersection(set(validator)):
-                propDict[key] = deepcopy(properties[key])
-                if readOnly['properties'][key]['readonly'] not in ["true", "True"]:
-                    mydb().updateMeta(target, parent, ancestor, key, propDict[key])
+            if readOnly['busy'] == "False":
+                validator = {}
+                for keys, values in readOnly['properties'].items():
+                    for k, v in values.items():
+                        validator[k] = v
+                # newProp = set(properties)
+                # oldProp = set(validator)
+                propDict = mydb().getPropertiesDict()
+                for key in set(properties).intersection(set(validator)):
+                    propDict[key] = deepcopy(properties[key])
+                    if readOnly['properties'][key]['readonly'] not in ["true", "True"]:
+                        mydb().updateMeta(target, parent, ancestor, key, propDict[key])
+            else:
+                return "Node busy"
 
 
     def copyNode(self, targetPath, locationPath):
-        # Copy the node and the subnodes
-        # self.loc = locationPath
-        # temp = {}
-        # try:
-        #     cursor = mydb().getNode(targetPath)
-        #     for items in cursor:
-        #         for keys, values in items.items():
-        #             temp[keys] = values
-        # except:
-        #     pass
-        # try:
-        #     shutil.copytree(targetPath, self.loc)
-        #     if temp:
-        #         temp['path'] = self.loc
-        #         temp['node'] = os.path.basename(self.loc)
-        #         temp['properties']['mtime'] = {
-        #             "mtime": "Modified "+datetime.fromtimestamp(os.path.getmtime(targetPath)).strftime(
-        #                 "%Y-%m-%d %H:%M:%S"), "readOnly" : "True"}
-        #         temp['properties']['ctime'] = {
-        #             "ctime": "MetaData modified "+datetime.now().strftime('%Y-%m-%d %H:%M:%S'), "readOnly" : "True"}
-        #         temp['properties']['btime'] = {
-        #             "btime": "Creation date "+datetime.fromtimestamp(os.path.getctime(targetPath)).strftime(
-        #                 "%Y-%m-%d %H:%M:%S"), "readOnly" : "True"}
-        #         mydb().insertDB(temp)
-        # except shutil.Error as e:
-        #     print('Directory not copied. Error: %s' % e)
-        #     # Copy at the same path
-        # except OSError as e:
-        #     print('Directory not copied. Error: %s' % e)
-        #     # Copy failed
         pass
 
     def moveNode(self, targetPath, locationPath):
-        # Move the node and the subnodes
         pass
 
     def deleteNode(self, targetPath):
@@ -156,14 +130,17 @@ class Vospace(Backend):
         if "nodes" in ancestor:
             ancestor.remove("nodes")
         if os.path.exists(targetPath):
-            if mydb().connexion().delete_one({'node': target, 'parent': parent, 'ancestor': ancestor}):
-                if parent:
-                    ancestor.append(parent)
-                if mydb().connexion().delete_many({'parent': target, 'ancestor': ancestor}):
-                    if os.path.isdir(targetPath):
-                        shutil.rmtree(targetPath)
-                    elif os.path.isfile(targetPath):
-                        os.remove(targetPath)
+            isbusy = mydb().getNode(target, parent, ancestor)
+            if isbusy:
+                if isbusy['busy'] == "False":
+                    if mydb().connexion().delete_one({'node': target, 'parent': parent, 'ancestor': ancestor}):
+                        if parent:
+                            ancestor.append(parent)
+                        if mydb().connexion().delete_many({'parent': target, 'ancestor': ancestor}):
+                            if os.path.isdir(targetPath):
+                                shutil.rmtree(targetPath)
+                            elif os.path.isfile(targetPath):
+                                os.remove(targetPath)
         else:
             return "FileNotFound"
 

@@ -4,7 +4,7 @@ import shutil
 import time
 from copy import deepcopy
 
-from settings import fstodictionary
+from fsscanner import fsscanner
 from db import Handler as mydb
 from genericbackend import Backend
 from parser import Parser as xml
@@ -79,7 +79,7 @@ class Vospace(Backend):
             else:
                 return 'Node busy'
             if os.path.exists(dictionary['path']):
-                mydb().insertDB(fstodictionary(dictionary['path']))
+                mydb().insertDB(fsscanner(dictionary['path']))
                 self.setNode(dictionary['cible'], dictionary['parent'], ancestor, dictionary['properties'])
                 print("%s seconds" % (time.time() - start_time))
 

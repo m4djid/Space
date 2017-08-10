@@ -4,7 +4,7 @@ import shutil
 import time
 from copy import deepcopy
 
-from fsscanner import fsscanner
+from fsscanner import fsscanner as fs
 from db import Handler as mydb
 from genericbackend import Backend
 from parser import Parser as xml
@@ -59,10 +59,6 @@ class Vospace(Backend):
 
 
     def createNode(self, dictionary):
-        start_time = time.time()
-        # Create node
-        # _path, target = os.path.split(dictionary['path'])
-        # _, parent = os.path.split(_path)
         if dictionary['ancestor'] == ['']:
             # MongoDB ancestor field will not work if
             # ancestor = ['']
@@ -71,18 +67,13 @@ class Vospace(Backend):
             ancestor = dictionary['ancestor']
         representation = mydb().getNode(dictionary['cible'], dictionary['parent'], ancestor)
         if not representation:
-            if representation['busy'] == "False":
-                try:
-                    os.makedirs(dictionary['path'])
-                except OSError as e:
-                    return 'Directory creation failed. Error %s' % e
-            else:
-                return 'Node busy'
+            try:
+                os.makedirs(dictionary['path'])
+            except OSError as e:
+                return 'Directory creation failed. Error %s' % e
             if os.path.exists(dictionary['path']):
-                mydb().insertDB(fsscanner(dictionary['path']))
+                mydb().insertDB(fs().scanner(dictionary['path'], details=1))
                 self.setNode(dictionary['cible'], dictionary['parent'], ancestor, dictionary['properties'])
-                print("%s seconds" % (time.time() - start_time))
-
         else:
             return "FileExistsError"
 

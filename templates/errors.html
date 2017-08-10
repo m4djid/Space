@@ -859,3 +859,59 @@ Traceback (most recent call last):
     return parser.close()
   File "<string>", line None
 xml.etree.ElementTree.ParseError: no element found: line 1, column 0
+<br><br><table><tr><td><font color="red"> 2017-08-09 16:57:33,365- __main__ - ERROR - Exception on /nodes/transfers [POST]</font><tr></table>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python3.5/dist-packages/flask_restplus/api.py", line 313, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/flask_restplus/resource.py", line 44, in dispatch_request
+    resp = meth(*args, **kwargs)
+TypeError: post() got an unexpected keyword argument 'path'
+<br><br><table><tr><td><font color="red"> 2017-08-10 09:22:03,127- __main__ - ERROR - Exception on /nodes/iyapici/Test2/MoveCopy/MoveCopyFolder [PUT]</font><tr></table>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python3.5/dist-packages/flask_restplus/api.py", line 313, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/flask_restplus/resource.py", line 44, in dispatch_request
+    resp = meth(*args, **kwargs)
+TypeError: put() got an unexpected keyword argument 'path'
+<br><br><table><tr><td><font color="red"> 2017-08-10 09:22:43,262- __main__ - ERROR - Exception on /nodes/iyapici/Test2/MoveCopyFolder [PUT]</font><tr></table>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python3.5/dist-packages/flask_restplus/api.py", line 313, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/flask_restplus/resource.py", line 44, in dispatch_request
+    resp = meth(*args, **kwargs)
+TypeError: put() got an unexpected keyword argument 'path'
+<br><br><table><tr><td><font color="red"> 2017-08-10 09:24:57,785- __main__ - ERROR - Exception on /nodes/iyapici/Test2/MoveCopyFolder [PUT]</font><tr></table>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python3.5/dist-packages/flask_restplus/api.py", line 313, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/flask_restplus/resource.py", line 44, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "app.py", line 100, in put
+    Vospace().createNode(xmltodict)
+  File "/home/bouchair/PycharmProjects/VOSpace/vospace.py", line 74, in createNode
+    if representation['busy'] == "False":
+KeyError: 'busy'

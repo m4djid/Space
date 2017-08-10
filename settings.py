@@ -6,8 +6,8 @@
 import os
 import time
 from db import Handler
-from fsscanner import fsscanner
-from routine import fsdbcomparator
+from fsscanner import fsscanner as fs
+from routine import routine as r
 
 RACINE = "./nodes"
 PROTOCOL = {
@@ -136,15 +136,12 @@ def populatefiles():
     for dir, subdirs, files in os.walk(RACINE):
         for x in subdirs:
             i = i + 1
-            Handler().insertDB(fsscanner(os.path.join(dir, x), defaultproperties, 1))
+            Handler().insertDB(fs().scanner(os.path.join(dir, x), defaultproperties, 1))
         for y in files:
             j = j + 1
-            Handler().insertDB(fsscanner(os.path.join(dir, y), defaultproperties, 1))
+            Handler().insertDB(fs().scanner(os.path.join(dir, y), defaultproperties, 1))
     total = i+j
     print("%s files added in %s seconds" % (str(total), (time.time() - start_time)))
-
-
-
 
 
 # Startup check up, if the app crashed and the DB is empty, it update it from FS
@@ -157,7 +154,7 @@ def main():
             populatefiles()
             print("Database ready")
         else:
-            fsdbcomparator()
+            r().fsdbcomparator()
             print("Database: OK")
     except ConnectionError as e:
         return e

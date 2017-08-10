@@ -76,28 +76,6 @@ class Handler(object):
 
     def setViews(self, cible, parent, ancestor, accepts, provides):
         coll = self.connexion()
-        # nodeCible = os.path.basename(cible)
         if self.getNode(cible, parent, ancestor):
             coll.update({'node': cible, 'parent': parent, 'ancestor': ancestor}, {"$set": {'accepts': accepts, 'provides': provides}})
 
-
-# a = Handler()
-# # a.updateMeta("BBBBB","myresult1",[],"description",["test de création", "True"])
-#
-# print(a.getNode("tatatata","myresult1",[]))
-
-# a.getChildrenNode("VospaceUws")
-# pprint(a.getMeta("./VOTest/VOSpace/nodes/myresult1"))
-# print(a.nodeExistsChecker('myresult1.txt'))
-# print(a.fsToDict('/home/bouchair/PycharmProjects/VOSpace-Py/VOTest/VOSpace/nodes/myresult1/Capability'))
-# print(a.getVOSpaceSettings('voviews'))
-# print(a.getMeta("./VOTest/VOSpace/nodes/myresult1"))
-# a.insertionMongo(a.metaDB("./VOTest/VOSpace/nodes/myresult1"), 'NodeMeta')
-# a.insertionMongo(a.metaDB("./VOTest/VOSpace/nodes/myresult2"), 'NodeMeta')
-# a.insertionMongo(a.metaDB("./VOTest/VOSpace/nodes/myresult3"), 'NodeMeta')
-# meta = a.metaDB("./VOTest/VOSpace/nodes/myresult1")
-# if a.modifMeta("myresult3", meta):
-#       print("Updated")
-# a.insertionMongo(a.fsToDict("./VOTest/VOSpace/nodes/myresult1"), 'VOSpaceFiles')
-# a.insertionMongo(a.fsToDict("./VOTest/VOSpace/nodes/myresult2"), 'VOSpaceFiles')
-# a.insertionMongo(a.fsToDict("./VOTest/VOSpace/nodes/myresult3"), 'VOSpaceFiles')

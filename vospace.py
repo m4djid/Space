@@ -78,8 +78,6 @@ class Vospace(Backend):
             return "FileExistsError"
 
     def setNode(self, target, parent, ancestor, properties):
-        # _path, target = os.path.split(path)
-        # _, parent = os.path.split(_path)
         if ancestor == ['']:
             # MongoDB ancestor field will not work if
             # ancestor = ['']
@@ -91,8 +89,6 @@ class Vospace(Backend):
                 for keys, values in readOnly['properties'].items():
                     for k, v in values.items():
                         validator[k] = v
-                # newProp = set(properties)
-                # oldProp = set(validator)
                 propDict = mydb().getPropertiesDict()
                 for key in set(properties).intersection(set(validator)):
                     propDict[key] = deepcopy(properties[key])
@@ -150,22 +146,3 @@ class Vospace(Backend):
     def pullToVoSpace(self, targetPath, endpointUri):
         # Execute a pull to VOSpace
         pass
-
-
-# a = Vospace()
-# print(mydb().nodeExistsChecker(os.path.basename("./VOTest/VOSpace/nodes/myresult1")))
-# a.startup()
-# # print(a.getEndpoint("./VOTest/VOSpace/nodes/myresult1"))
-# # for k,v in a.getNode("./VOTest/VOSpace/nodes/myresult1")['properties']['type'].items():
-# #     print(v)
-# # a.createNode("./VOTest/VOSpace/nodes/myresult5", "ContainerNode")
-# # print(a.nodeExistsChecker(os.path.basename("./VOTest/VOSpace/nodes/myresult4")))
-
-# a.setNode("myresult1/BBBBB",{'language': ['français', 'False'], 'title': ['test de création', 'False'], 'description': ['FooBarTotoTiti', 'False']})
-# # print(a.copyNode("./VOTest/VOSpace/nodes/myresult1", "./VOTest/copy/myresult1"))
-# mydb().setViews("./VOTest/VOSpace/nodes/myresult1",{'anyview' : 'ivo://ivoa.net/vospace/core#anyview', 'fits' : 'ivo://ivoa.net/vospace/core#fits' },
-#                                                      {'default' : 'ivo://ivoa.net/vospace/core#defaultview', 'fits' :  'ivo://ivoa.net/vospace/core#fits' })
-
-# pprint(mydb().getMeta("./VOTest/copy/myresult1"))
-# a.deleteNode("./VOTest/copy/myresult2/metamyresult2")
-# print(os.path.exists("./VOTest/copy/myresult2/metamyresult2"))

@@ -16,15 +16,6 @@ class fsscanner(object):
             retour = str(taille_) + 'o'
         return retour
 
-
-    # def getsizedir(self, start_path):
-    #     total_size = 0
-    #     for dirpath, dirnames, filenames in os.walk(start_path):
-    #         for f in filenames:
-    #             fp = os.path.join(dirpath, f)
-    #             total_size += os.path.getsize(fp)
-    #     return self.octet(total_size)
-
     # Get node representation from the filesystem as dictionary
     def scanner(self, path, properties=None, details=None):
         tempdate = datetime.fromtimestamp(os.path.getmtime(path))

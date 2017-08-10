@@ -64,43 +64,6 @@ class Parser(object):
 
         return xmltodict
 
-    # def var_assign(self, node, string, idx):
-    #     global url_fichier, attribut_direction, vu
-    #     index = idx - 1
-    #     if string == "targET":
-    #         self.url_fichier = node[index].text
-    #     elif string == "direction":
-    #         self.attribut_direction = node[index].text
-    #     elif string == "view":
-    #         self.vu = node[index].attrib
-    #
-    # def xml_tag_reader(self, root):
-    #     retour = {}
-    #     global distant
-    #     i = 1
-    #     for index, childs in enumerate(root.iter()):
-    #         self.var_assign(root, childs.tag[38:], index)
-    #         for subchild in childs:
-    #             if "endpoint" in subchild.tag:
-    #                 self.distant[subchild.tag[38:] + str(i)] = {"destination": subchild.text}
-    #                 i += 1
-    #         if len(childs.attrib) != 0 and len(childs.tag) != 0:
-    #             tag = childs.tag[38:]
-    #             att = childs.attrib
-    #             retour[tag] = att
-    #     return retour
-
-    # def protocol_parser(self, dictionary):
-    #     if "protocol" in dictionary:
-    #         if "ivo://ivoa.net/vospace/core#httpgET" in dictionary["protocol"].values():
-    #             return "ivo://ivoa.net/vospace/core#httpgET"
-    #         elif "ivo://ivoa.net/vospace/core#httppost" in dictionary["protocol"].values():
-    #             return "ivo://ivoa.net/vospace/core#httppost"
-    #         elif "ivo://ivoa.net/vospace/core#httpput" in dictionary["protocol"].values():
-    #             return "ivo://ivoa.net/vospace/core#httpput"
-    #         elif "ivo://ivoa.net/vospace/core#httpdelETe" in dictionary["protocol"].values():
-    #             return "ivo://ivoa.net/vospace/core#httpdelETe"
-
     # Format XML Response
     def xml_formateur(self, element):
         chaine_originale = ET.tostring(element)
@@ -124,7 +87,7 @@ class Parser(object):
         VOSPACE_URI = "http://www.ivoa.net/xml/VOSpace/v2.1"
         CORE_uri = "ivo://ivoa.net/vospace/core#"
         URI_V = "uri"
-        # Generate GETProtocols, GETViews or GETProperties XML
+        # Generate GetProtocols, GetViews or GetProperties XML representation
         if action in ["protocols", "views", "properties"]:
             temp = node
             top = ET.Element(PREFIX + action)
@@ -149,7 +112,7 @@ class Parser(object):
 
             return self.xml_formateur(top)
 
-        # Generate GETNode XML
+        # Generate GetNode XML representation
         elif action is "get":
             if node:
                 temp = node
@@ -212,19 +175,3 @@ class Parser(object):
                         chilprop = ET.SubElement(properties, PREFIX + 'property')
 
                 return self.xml_formateur(top)
-
-# a = Parser()
-# b = a.xml_parser("""<?xml version="1.0" encoding="UTF-8"?>
-# <vos:node xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
-#     xmlns:vos="http://www.ivoa.net/xml/VOSpace/v2.1" xs:type="vos:ContainerNode" uri="vos://example.com!nodes/myresult1/BBBBB">
-#   <vos:properties>
-#   	<vos:property uri="ivo://ivoa.net/vospace/core#title" readOnly="False">test de création</vos:property>
-#   	<vos:property uri="ivo://ivoa.net/vospace/core#language">français</vos:property>
-#   	<vos:property uri="ivo://ivoa.net/vospace/core#description">FooBarTotoTiti</vos:property>
-#   </vos:properties>
-#   <vos:accepts/>
-#   <vos:provides/>
-#   <vos:capabilities/>
-#   <vos:nodes/>
-# </vos:node>""")
-# print(b)

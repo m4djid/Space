@@ -81,8 +81,6 @@ class MyResource(Resource):
         else:
             return Response(node, mimetype='text/xml')
 
-    @api.doc(params={'XML': 'XML de modification de la node'})
-    @api.doc('Modifie les metadonnées d\'une node')
     @api.response(200, "Node modifiée")
     @api.response(404, "Node non trouvée")
     def post(self, path):
@@ -91,8 +89,6 @@ class MyResource(Resource):
         node = Vospace().getNode(xmltodict['cible'], xmltodict['parent'], xmltodict['ancestor'])
         return Response(node, status=200, mimetype='text/xml')
 
-    @api.doc(params={'XML': 'XML de création de la node'})
-    @api.doc('Création d\'une node')
     @api.response(201, "Représentation de la node créée")
     @api.response(500, "Erreur interne")
     def put(self, path):
@@ -105,73 +101,6 @@ class MyResource(Resource):
     @api.response(204, "Node deleted \n")
     def delete(self, path):
         return Response(Vospace().deleteNode("nodes/"+path), status=204, mimetype='text/xml')
-
-# @api.route('/nodes/<string:account>',  strict_slashes=False)
-# class MyAccount(Resource):
-#     @api.doc(params={'XML': 'XML de modification de la node'})
-#     @api.doc('Modifie les metadonnées d\'une node')
-#     @api.response(200, "Node modifiée")
-#     @api.response(404, "Node non trouvée")
-#     def post(self, account):
-#         xmltodict = Parser().xml_parser(request.data.decode("utf-8"))
-#         Vospace().setNode(xmltodict['cible'], xmltodict['parent'], xmltodict['ancestor'], xmltodict['properties'])
-#         node = Vospace().getNode(xmltodict['cible'], xmltodict['parent'], xmltodict['ancestor'])
-#         return Response(node, status=200, mimetype='text/xml')
-#
-#     @api.doc(params={'XML': 'XML de création de la node'})
-#     @api.doc('Création d\'une node')
-#     @api.response(201, "Représentation de la node créée")
-#     @api.response(500, "Erreur interne")
-#     def put(self, account):
-#         xmltodict = Parser().xml_parser(request.data.decode("utf-8"))
-#         Vospace().createNode(xmltodict)
-#         node = Vospace().getNode(xmltodict['cible'], xmltodict['parent'], xmltodict['ancestor'])
-#         return Response(node, status=201, mimetype='text/xml')
-
-
-# @app.route("/nodes/iyapici",  strict_slashes=False, methods=['GET', 'POST', 'PUT'])
-# @requires_auth
-# def api_yapilanding():
-#     if request.method == 'GET':
-#         retour = Vospace().getNode("iyapici")
-#         if retour:
-#             return Response(retour, status=200, content_type='text/xml')
-#         else:
-#             return make_response(render_template('404.html'), 404)
-#     if request.method == 'POST':
-#         xmltodict = Parser().xml_parser(request.data.decode("utf-8"))
-#         Vospace().setNode(xmltodict['path'] + "/" + xmltodict['cible'], xmltodict['properties'])
-#         return Response(Vospace().getNode(xmltodict['cible'], xmltodict['parent'], xmltodict['ancestor']), content_type='text/xml')
-#
-#     if request.method == 'PUT':
-#         xmltodict = Parser().xml_parser(request.data.decode("utf-8"))
-#         Vospace().createNode(xmltodict)
-#         return Response(Vospace().getNode(xmltodict['cible'], xmltodict['parent'], xmltodict['ancestor']), content_type='text/xml')
-
-
-# @app.route("/nodes/iyapici/<path:varargs>", strict_slashes=False, methods=['GET', 'DELETE'])
-# @requires_auth
-# def api_yapici(varargs):
-#     if request.method == 'GET':
-#         retour = Vospace().getNode("iyapici/"+varargs)
-#         if retour:
-#             return Response(retour, status=200, content_type='text/xml')
-#         else:
-#             return make_response(render_template('404.html'), 404)
-#
-#     # if request.method == 'POST':
-#     #     xmltodict = Parser().xml_parser(request.data.decode("utf-8"))
-#     #     Vospace().setNode(xmltodict['path']+"/"+xmltodict['cible'], xmltodict['properties'])
-#     #     return Response(Vospace().getNode(xmltodict['cible']), content_type='text/xml')
-#     #
-#     # if request.method == 'PUT':
-#     #     xmltodict = Parser().xml_parser(request.data.decode("utf-8"))
-#     #     Vospace().createNode(xmltodict)
-#     #     return Response(Vospace().getNode(xmltodict['cible']), content_type='text/xml')
-#
-#     if request.method == 'DELETE':
-#         Vospace().deleteNode("nodes/iyapici/"+varargs)
-#         return Response(None, status=204, content_type='text/xml')
 
 
 

@@ -25,7 +25,7 @@ class routine(object):
                 try:
                     Handler().insertDB(fs().scanner(items['path'], details=1))
                 except Exception as e:
-                    Handler().connexion().delete({'path':items['path']})
+                    Handler().connexion().delete_one({'path':items['path']})
                     print(e)
             print("Database Updated : %s node(s)" % len(r))
         else:

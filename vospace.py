@@ -84,16 +84,16 @@ class Vospace(Backend):
             ancestor = []
         readOnly = mydb().getNode(target, parent, ancestor)
         if readOnly:
-            if readOnly['busy'] == "False":
-                validator = {}
-                for keys, values in readOnly['properties'].items():
-                    for k, v in values.items():
-                        validator[k] = v
-                propDict = mydb().getPropertiesDict()
-                for key in set(properties).intersection(set(validator)):
-                    propDict[key] = deepcopy(properties[key])
-                    if readOnly['properties'][key]['readonly'] not in ["true", "True"]:
-                        mydb().updateMeta(target, parent, ancestor, key, propDict[key])
+            # if readOnly['busy'] == "False":
+            validator = {}
+            for keys, values in readOnly['properties'].items():
+                for k, v in values.items():
+                    validator[k] = v
+            propDict = mydb().getPropertiesDict()
+            for key in set(properties).intersection(set(validator)):
+                propDict[key] = deepcopy(properties[key])
+                if readOnly['properties'][key]['readonly'] not in ["true", "True"]:
+                    mydb().updateMeta(target, parent, ancestor, key, propDict[key])
             else:
                 return "Node busy"
 
@@ -114,20 +114,20 @@ class Vospace(Backend):
             ancestor = []
         else:
             ancestor = _.split(os.sep)
-        if "nodes" in ancestor:
-            ancestor.remove("nodes")
+        if "storage" in ancestor:
+            ancestor.remove("storage")
         if os.path.exists(targetPath):
-            isbusy = mydb().getNode(target, parent, ancestor)
-            if isbusy:
-                if isbusy['busy'] == "False":
-                    if mydb().connexion().delete_one({'node': target, 'parent': parent, 'ancestor': ancestor}):
-                        if parent:
-                            ancestor.append(parent)
-                        if mydb().connexion().delete_many({'parent': target, 'ancestor': ancestor}):
-                            if os.path.isdir(targetPath):
-                                shutil.rmtree(targetPath)
-                            elif os.path.isfile(targetPath):
-                                os.remove(targetPath)
+            # isbusy = mydb().getNode(target, parent, ancestor)
+            # if isbusy:
+            #     if isbusy['busy'] == "False":
+            if mydb().connexion().delete_one({'node': target, 'parent': parent, 'ancestor': ancestor}):
+                if parent:
+                    ancestor.append(parent)
+                if mydb().connexion().delete_many({'parent': target, 'ancestor': ancestor}):
+                    if os.path.isdir(targetPath):
+                        shutil.rmtree(targetPath)
+                    elif os.path.isfile(targetPath):
+                        os.remove(targetPath)
         else:
             return "FileNotFound"
 

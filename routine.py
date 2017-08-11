@@ -13,7 +13,7 @@ class routine(object):
         for items in cursor:
             database.append(items)
 
-        for dir, subdirs, files in os.walk("./nodes"):
+        for dir, subdirs, files in os.walk("./storage"):
             for x in subdirs:
                 FS.append(fs().scanner(os.path.join(dir, x)))
             for y in files:

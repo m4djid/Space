@@ -23,9 +23,10 @@ class fsscanner(object):
         owner = str(os.stat(path).st_uid)
         filename = os.path.basename(path)
         parent = os.path.basename(os.path.abspath(os.path.join(path, os.pardir)))
-        if parent == "nodes":
+        if parent == "storage":
             parent = ''
-        _path = path[path.find('nodes'):]
+        _path = path[path.find('storage'):]
+        _path = _path.replace('storage/','')
         if details:
             representation = {
                 'node': filename,
@@ -53,7 +54,7 @@ class fsscanner(object):
                 representation['properties']['type'] = {'type': 'DataNode', 'readonly': "True"}
             representation['size'] = self.octet(os.path.getsize(path))
             mathusalem = path.split(os.sep)
-            list = [".", "nodes", representation['parent'], representation['node']]
+            list = [".", "storage", representation['parent'], representation['node']]
             for items in mathusalem:
                 if items not in list:
                     representation['ancestor'].append(items)

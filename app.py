@@ -97,10 +97,9 @@ class MyResource(Resource):
         node = Vospace().getNode(xmltodict['cible'], xmltodict['parent'], xmltodict['ancestor'])
         return Response(node, status=201, mimetype='text/xml')
 
-    @api.doc("Suppréssion d'une node")
     @api.response(204, "Node deleted \n")
     def delete(self, path):
-        return Response(Vospace().deleteNode("nodes/"+path), status=204, mimetype='text/xml')
+        return Response(Vospace().deleteNode(path), status=204, mimetype='text/xml')
 
 
 

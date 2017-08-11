@@ -9,7 +9,7 @@ from db import Handler
 from fsscanner import fsscanner as fs
 from routine import routine as r
 
-RACINE = "./nodes"
+RACINE = "./storage"
 PROTOCOL = {
         'get': 'ivo://ivoa.net/vospace/core#httpget',
         'post': 'ivo://ivoa.net/vospace/core#httppost',

@@ -119,7 +119,7 @@ class Parser(object):
                 top = ET.Element(PREFIX + 'node')
                 top.set(XMLNSVOS, VOSPACE_URI)
                 top.set(XMLNSW3C, W3C_URI)
-                top.set(URI_V, "http://rest-endpoint/"+temp['path'][0:])
+                top.set(URI_V, "http://rest-endpoint/nodes/"+temp['path'][0:])
                 for k, v in temp['properties']['type'].items():
                     if k != "readonly":
                         top.set("xs:type", PREFIX + v)
@@ -157,7 +157,7 @@ class Parser(object):
                 children = ET.SubElement(top, PREFIX + 'nodes')
                 for childrens in temp['children']:
                     child = ET.SubElement(children, PREFIX + 'node')
-                    child.set(URI_V, "http://rest-endpoint/"+childrens['path'][0:])
+                    child.set(URI_V, "http://rest-endpoint/nodes/"+childrens['path'][0:])
                     child.set("xs:type", childrens['properties']['type']['type'])
                     child.set("Busy", childrens['busy'])
 

@@ -915,3 +915,65 @@ Traceback (most recent call last):
   File "/home/bouchair/PycharmProjects/VOSpace/vospace.py", line 74, in createNode
     if representation['busy'] == "False":
 KeyError: 'busy'
+<br><br><table><tr><td><font color="red"> 2017-08-16 12:37:24,843- __main__ - ERROR - Exception on /upload/iyapici/BBBBB [GET]</font><tr></table>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python3.5/dist-packages/flask_restplus/api.py", line 313, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/flask_restplus/resource.py", line 37, in dispatch_request
+    assert meth is not None, 'Unimplemented method %r' % request.method
+AssertionError: Unimplemented method 'GET'
+<br><br><table><tr><td><font color="red"> 2017-08-16 13:33:19,563- __main__ - ERROR - Exception on /upload/myresult1/BBBBB [PUT]</font><tr></table>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python3.5/dist-packages/flask_restplus/api.py", line 313, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/flask_restplus/resource.py", line 44, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "app.py", line 120, in put
+    file.save(os.path.join(app.config['UPLOAD_FOLDER'],path))
+AttributeError: 'ImmutableMultiDict' object has no attribute 'save'
+<br><br><table><tr><td><font color="red"> 2017-08-16 13:34:12,310- __main__ - ERROR - Exception on /upload/myresult1/BBBBB [PUT]</font><tr></table>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python3.5/dist-packages/flask_restplus/api.py", line 313, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/flask_restplus/resource.py", line 44, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "app.py", line 120, in put
+    file.save(os.path.join(app.config['UPLOAD_FOLDER'],path))
+  File "/usr/local/lib/python3.5/dist-packages/werkzeug/datastructures.py", line 2703, in save
+    dst = open(dst, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: '/storage/myresult1/BBBBB'
+<br><br><table><tr><td><font color="red"> 2017-08-16 13:34:53,582- __main__ - ERROR - Exception on /upload/myresult1/BBBBB [PUT]</font><tr></table>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.5/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python3.5/dist-packages/flask_restplus/api.py", line 313, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/flask_restplus/resource.py", line 44, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "app.py", line 120, in put
+    file.save(os.path.join(app.config['UPLOAD_FOLDER'],path))
+  File "/usr/local/lib/python3.5/dist-packages/werkzeug/datastructures.py", line 2703, in save
+    dst = open(dst, 'wb')
+IsADirectoryError: [Errno 21] Is a directory: './storage/myresult1/BBBBB'

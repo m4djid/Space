@@ -4,10 +4,12 @@ import os
 from vospace import Vospace
 from flask import Flask, request, Response, render_template, make_response
 from flask_restplus import Api, Resource
-from time import sleep
 from parser import Parser
-from settings import main
+import werkzeug.utils as w
+from fsscanner import fsscanner as fs
+from db import Handler as db
 
+UPLOAD_FOLDER = './storage'
 
 app = Flask(__name__)
 
@@ -15,8 +17,11 @@ app = Flask(__name__)
 
 api = Api(app, version='1.0', title='CDS VOSpace',
     description='Prototype de VOSpace')
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['ALLOWED_EXTENSIONS'] = ['txt', 'pdf', 'png', 'jpg', 'jpeg', 'jar','vot','xml', 'java', 'tar.gz', 'zip']
 app.config.SWAGGER_UI_LANGUAGES = ['en', 'fr']
 app.config.SWAGGER_UI_DOC_EXPANSION = 'list'
+
 
 if app.debug is not True:
     import logging
@@ -26,6 +31,10 @@ if app.debug is not True:
     formatter = logging.Formatter("<br><br><table><tr><td><font color=\"red\"> %(asctime)s- %(name)s - %(levelname)s - %(message)s</font><tr></table>")
     file_handler.setFormatter(formatter)
     app.logger.addHandler(file_handler)
+
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSIONS']
 
 # def check_auth(username, password):
 #     # Test account
@@ -101,7 +110,19 @@ class MyResource(Resource):
     def delete(self, path):
         return Response(Vospace().deleteNode(path), status=204, mimetype='text/xml')
 
-
+@api.route('/upload/<path:path>',  strict_slashes=False)
+class MyUpload(Resource):
+    def put(self,path):
+            print("PUT")
+            file = request.files['files']
+            print("FILE : ")
+            print(request.files)
+            if file and allowed_file(file.filename):
+                filename = w.secure_filename(file.filename)
+                file.save(os.path.join(app.config['UPLOAD_FOLDER']+"/"+path, filename))
+                print("SAVE " + os.path.join(app.config['UPLOAD_FOLDER']+"/"+path, filename))
+                db().insertDB(fs().scanner(os.path.join(app.config['UPLOAD_FOLDER']+"/"+path, filename), details=1))
+            return path
 
 @api.route("/protocols")
 class Protocol(Resource):

@@ -113,14 +113,10 @@ class MyResource(Resource):
 @api.route('/upload/<path:path>',  strict_slashes=False)
 class MyUpload(Resource):
     def put(self,path):
-            print("PUT")
             file = request.files['files']
-            print("FILE : ")
-            print(request.files)
             if file and allowed_file(file.filename):
                 filename = w.secure_filename(file.filename)
                 file.save(os.path.join(app.config['UPLOAD_FOLDER']+"/"+path, filename))
-                print("SAVE " + os.path.join(app.config['UPLOAD_FOLDER']+"/"+path, filename))
                 db().insertDB(fs().scanner(os.path.join(app.config['UPLOAD_FOLDER']+"/"+path, filename), details=1))
             return path
 

@@ -21,11 +21,11 @@ class routine(object):
 
         r = [x for x in database + FS if x not in database or x not in FS]
         if len(r) > 0:
-            for items in r:
+            for _ in r:
                 try:
-                    Handler().insertDB(fs().scanner(items['path'], details=1))
+                    Handler().insertDB(fs().scanner("./storage/"+_['path'], details=1))
                 except Exception as e:
-                    Handler().connexion().delete_one({'path':items['path']})
+                    Handler().connexion().delete_one({'path':_['path']})
                     print(e)
             print("Database Updated : %s node(s)" % len(r))
         else:

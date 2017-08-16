@@ -19,14 +19,19 @@ class Parser(object):
             "provides": [],
             "capabilities": [],
         }
-
-        root = ET.fromstring(xml)
+        root = ""
+        try:
+            root = ET.fromstring(xml)
+        except:
+            raise Exception
 
         for k, v in root.attrib.items():
             if "type" in k:
                 xmltodict['properties'] = {'type': [v[v.rfind(":"):][1:], "True"]}
             elif k == "uri":
                 uri, cible = os.path.split(v[v.rfind("!"):][1:])
+                _uri = uri[uri.find('nodes'):]
+                _uri = _uri.replace('nodes/', 'storage/')
                 ancestor, parent = os.path.split(uri)
                 if not ancestor:
                     # MongoDB ancestor field will not work if
@@ -38,7 +43,7 @@ class Parser(object):
                     ancestor.remove("nodes")
                 xmltodict['cible'] = cible
                 xmltodict['parent'] = parent
-                xmltodict['path'] = uri + "/" + cible
+                xmltodict['path'] = _uri + "/" + cible
                 xmltodict['ancestor'] = ancestor
 
         for childrens in root:

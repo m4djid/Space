@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tap.config.TestConfigurableServiceConnection" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-07-17T15:31:25" hostname="cds-stage-ms3" time="0.974">
+  <properties/>
+  <testcase name="testDefaultServiceConnectionProperties" classname="tap.config.TestConfigurableServiceConnection" time="0.974"/>
+  <testcase name="testGetFile" classname="tap.config.TestConfigurableServiceConnection" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

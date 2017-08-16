@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="adql.parser.TestADQLParser" tests="4" skipped="0" failures="0" errors="0" timestamp="2017-07-17T15:31:04" hostname="cds-stage-ms3" time="0.023">
+  <properties/>
+  <testcase name="testJoinTree" classname="adql.parser.TestADQLParser" time="0.019"/>
+  <testcase name="testDelimitedIdentifiersWithDot" classname="adql.parser.TestADQLParser" time="0.0"/>
+  <testcase name="test" classname="adql.parser.TestADQLParser" time="0.001"/>
+  <testcase name="testColumnReference" classname="adql.parser.TestADQLParser" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

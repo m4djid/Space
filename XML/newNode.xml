@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vos:node xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:vos="http://www.ivoa.net/xml/VOSpace/v2.1" xs:type="vos:ContainerNode" uri="vos://example.com!nodes/myresult1/BBBBB">
+    xmlns:vos="http://www.ivoa.net/xml/VOSpace/v2.1" xs:type="vos:ContainerNode" uri="vos://example.com!nodes/myresult1/CCCCC">
   <vos:properties>
   	<vos:property uri="ivo://ivoa.net/vospace/core#title" readOnly="False">test de création</vos:property>
   	<vos:property uri="ivo://ivoa.net/vospace/core#language">français</vos:property>

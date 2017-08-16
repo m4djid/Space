@@ -8,6 +8,7 @@ from parser import Parser
 import werkzeug.utils as w
 from fsscanner import fsscanner as fs
 from db import Handler as db
+import settings
 
 UPLOAD_FOLDER = './storage'
 
@@ -102,13 +103,26 @@ class MyResource(Resource):
     @api.response(500, "Erreur interne")
     def put(self, path):
         xmltodict = Parser().xml_parser(request.data.decode("utf-8"))
-        Vospace().createNode(xmltodict)
+        try:
+            Vospace().createNode(xmltodict)
+        except:
+            return Response("Internal Error", status=500, mimetype='text/xml')
         node = Vospace().getNode(xmltodict['cible'], xmltodict['parent'], xmltodict['ancestor'])
         return Response(node, status=201, mimetype='text/xml')
 
     @api.response(204, "Node deleted \n")
     def delete(self, path):
-        return Response(Vospace().deleteNode(path), status=204, mimetype='text/xml')
+        _path, target = os.path.split(path)
+        _, parent = os.path.split(_path)
+        if _:
+            ancestor = _.split(os.sep)
+        else:
+            ancestor = []
+        try:
+            Vospace().deleteNode(target, parent, ancestor, path)
+        except:
+            return Response("Internal Error, node not deleted", status=500)
+        return Response('', status=204, mimetype='text/xml')
 
 @api.route('/upload/<path:path>',  strict_slashes=False)
 class MyUpload(Resource):

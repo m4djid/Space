@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<vos:transfer xmlns:vos="http://www.ivoa.net/xml/VOSpace/v2.1">
+<vos:target>vos://example.com!vospace/myresult1/BBBBB</vos:target>
+<vos:direction>pushToVoSpace</vos:direction>
+<vos:protocol uri="ivo://ivoa.net/vospace/core#httpput">
+<vos:endpoint>http://130.79.128.185/vospace/storage/myresult1/BBBBB</vos:endpoint>
+</vos:protocol>
+</vos:transfer>

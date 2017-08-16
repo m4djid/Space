@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="adql.translator.TestPgSphereTranslator" tests="5" skipped="0" failures="0" errors="0" timestamp="2017-07-17T15:31:10" hostname="cds-stage-ms3" time="0.015">
+  <properties/>
+  <testcase name="testTranslateGeometryToDB" classname="adql.translator.TestPgSphereTranslator" time="0.01"/>
+  <testcase name="testTranslateCentroidFunction" classname="adql.translator.TestPgSphereTranslator" time="0.002"/>
+  <testcase name="testTranslateGeometryFromDB" classname="adql.translator.TestPgSphereTranslator" time="0.002"/>
+  <testcase name="testConvertTypeFromDB" classname="adql.translator.TestPgSphereTranslator" time="0.001"/>
+  <testcase name="testConvertTypeToDB" classname="adql.translator.TestPgSphereTranslator" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

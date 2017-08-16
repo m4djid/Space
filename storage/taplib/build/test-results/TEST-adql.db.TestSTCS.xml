@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="adql.db.TestSTCS" tests="4" skipped="0" failures="0" errors="0" timestamp="2017-07-17T15:31:08" hostname="cds-stage-ms3" time="0.033">
+  <properties/>
+  <testcase name="buildRegion" classname="adql.db.TestSTCS" time="0.027"/>
+  <testcase name="parseCoordSys" classname="adql.db.TestSTCS" time="0.001"/>
+  <testcase name="parseRegion" classname="adql.db.TestSTCS" time="0.004"/>
+  <testcase name="serializeCoordSys" classname="adql.db.TestSTCS" time="0.0"/>
+  <system-out><![CDATA[Call:   StringExpression
+  Call:   StringFactor
+    Call:   StringValueExpressionPrimary
+      Call:   String
+        Consumed token: <"\'": "'POSITION '" at line 1 column 1>
+      Return: String
+    Return: StringValueExpressionPrimary
+  Return: StringFactor
+  Consumed token: <"||" at line 1 column 13>
+  Call:   StringFactor
+    Call:   StringValueExpressionPrimary
+      Call:   Column
+        Call:   ColumnName
+          Call:   Identifier
+            Consumed token: <<REGULAR_IDENTIFIER>: "coordinateSys" at line 1 column 16>
+          Return: Identifier
+        Return: ColumnName
+      Return: Column
+    Return: StringValueExpressionPrimary
+  Return: StringFactor
+  Consumed token: <"||" at line 1 column 30>
+  Call:   StringFactor
+    Call:   StringValueExpressionPrimary
+      Call:   String
+        Consumed token: <"\'": "' '" at line 1 column 33>
+      Return: String
+    Return: StringValueExpressionPrimary
+  Return: StringFactor
+  Consumed token: <"||" at line 1 column 37>
+  Call:   StringFactor
+    Call:   StringValueExpressionPrimary
+      Call:   Column
+        Call:   ColumnName
+          Call:   Identifier
+            Consumed token: <<REGULAR_IDENTIFIER>: "ra" at line 1 column 40>
+          Return: Identifier
+        Return: ColumnName
+      Return: Column
+    Return: StringValueExpressionPrimary
+  Return: StringFactor
+  Consumed token: <"||" at line 1 column 43>
+  Call:   StringFactor
+    Call:   StringValueExpressionPrimary
+      Call:   String
+        Consumed token: <"\'": "' '" at line 1 column 46>
+      Return: String
+    Return: StringValueExpressionPrimary
+  Return: StringFactor
+  Consumed token: <"||" at line 1 column 50>
+  Call:   StringFactor
+    Call:   StringValueExpressionPrimary
+      Call:   Column
+        Call:   ColumnName
+          Call:   Identifier
+            Consumed token: <<REGULAR_IDENTIFIER>: "dec" at line 1 column 53>
+          Return: Identifier
+        Return: ColumnName
+      Return: Column
+    Return: StringValueExpressionPrimary
+  Return: StringFactor
+Return: StringExpression
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -29,7 +29,7 @@ class Backend(ABC):
         raise NotImplementedError('users must define moveNode to use this base class')
 
     @abstractmethod
-    def deleteNode(self, targetUri):
+    def deleteNode(self, target, parent, ancestor, targetUri):
         # Deplace la node et ses enfants
         raise NotImplementedError('users must define deleteNode to use this base class')
 

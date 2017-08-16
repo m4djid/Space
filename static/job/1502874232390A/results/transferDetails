@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<vos:transfer xmlns:vos="http://www.ivoa.net/xml/VOSpace/v2.1">
+<vos:target>vos://example.com!vospace/iyapici/titi</vos:target>
+<vos:direction>pullFromVoSpace</vos:direction>
+<vos:protocol uri="ivo://ivoa.net/vospace/core#httpget">
+<vos:endpoint>http://130.79.128.185/job/1502874232390A/titi.zip</vos:endpoint>
+</vos:protocol>
+<vos:view uri="ivo://ivoa.net/vospace/core#zip"/>
+</vos:transfer>

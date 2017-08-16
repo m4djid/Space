@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="adql.search.TestSimpleReplaceHandler" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-07-17T15:31:11" hostname="cds-stage-ms3" time="0.018">
+  <properties/>
+  <testcase name="testReplaceRecursiveMatch" classname="adql.search.TestSimpleReplaceHandler" time="0.017"/>
+  <testcase name="testWrappingReplacement" classname="adql.search.TestSimpleReplaceHandler" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

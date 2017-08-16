@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="adql.parser.TestUnknownTypes" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-07-17T15:31:04" hostname="cds-stage-ms3" time="0.029">
+  <properties/>
+  <testcase name="testForColumns" classname="adql.parser.TestUnknownTypes" time="0.029"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tap.db.TestJDBCConnection" tests="12" skipped="0" failures="0" errors="0" timestamp="2017-07-17T15:31:18" hostname="cds-stage-ms3" time="4.057">
+  <properties/>
+  <testcase name="testGetTAPSchemaTablesDef" classname="tap.db.TestJDBCConnection" time="0.007"/>
+  <testcase name="testIsTableExisting" classname="tap.db.TestJDBCConnection" time="0.422"/>
+  <testcase name="testIsColumnExisting" classname="tap.db.TestJDBCConnection" time="0.468"/>
+  <testcase name="testGetDBMSDatatype" classname="tap.db.TestJDBCConnection" time="0.0"/>
+  <testcase name="testDropUploadedTable" classname="tap.db.TestJDBCConnection" time="0.234"/>
+  <testcase name="testGetTAPSchema" classname="tap.db.TestJDBCConnection" time="0.434"/>
+  <testcase name="testExecuteQuery" classname="tap.db.TestJDBCConnection" time="0.343"/>
+  <testcase name="testMergeTAPSchemaDefs" classname="tap.db.TestJDBCConnection" time="0.001"/>
+  <testcase name="testGetCreationOrder" classname="tap.db.TestJDBCConnection" time="0.0"/>
+  <testcase name="testAddUploadedTable" classname="tap.db.TestJDBCConnection" time="0.877"/>
+  <testcase name="testSetTAPSchema" classname="tap.db.TestJDBCConnection" time="1.27"/>
+  <testcase name="testEquals" classname="tap.db.TestJDBCConnection" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

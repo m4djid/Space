@@ -1,0 +1,7 @@
+<html><head><title>UWS4 example (using UWSServlet)</title></head><body>
+<h1>UWS v4 Example (using UWSServlet)</h1
+<p>Hello, this is an example of a use of the library UWS v4.1 !</p>
+<p>Below is the list of all available jobs lists:</p>
+<ul>
+<li>trans - 2 jobs - <a href="http://localhost:8080/vospace/trans/trans">http://localhost:8080/vospace/trans/trans</a></li>
+</ul>

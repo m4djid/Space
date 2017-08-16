@@ -1,0 +1,7 @@
+<vos:transfer xmlns:vos="http://www.ivoa.net/xml/VOSpace/v2.1">
+  <vos:target>vos://example.com!vospace/myresult1/BBBBB</vos:target>
+  <vos:direction>pushToVoSpace</vos:direction>
+  <vos:view uri="ivo://ivoa.net/vospace/core#fits"/>
+  <vos:protocol uri="ivo://ivoa.net/vospace/core#httpput" />
+  <vos:param uri="ivo://ivoa.net/vospace/core#length">388943</vos:param>
+</vos:transfer>

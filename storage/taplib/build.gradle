@@ -1,0 +1,35 @@
+apply plugin: 'java'
+apply plugin: 'war'
+
+repositories {
+    jcenter()
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    compile fileTree(dir: 'lib', includes: ['stil_3.1.jar','cos-1.5beta.jar'])
+    compile 'javax.servlet:javax.servlet-api:3.0.1'
+    compile 'postgresql:postgresql:9.1-901.jdbc4'
+
+    testCompile 'junit:junit:4.12'
+    testCompile 'com.h2database:h2:1.4.193'
+    testCompile fileTree(dir: 'lib', include: 'astroh2-0.3.jar')
+    
+    testRuntime 'simple-jndi:simple-jndi:0.11.4.1'
+    testRuntime 'com.vividsolutions:jts-core:1.14.0'
+    testRuntime 'org.locationtech.spatial4j:spatial4j:0.6'
+    testRuntime 'org.xerial:sqlite-jdbc:3.16.1'
+}
+
+compileJava {
+    options.encoding = "UTF-8"
+}
+
+test{
+	forkEvery = 1
+	include '**/Test*'
+}
+
+sourceSets.main.java.srcDirs = ["src"]
+sourceSets.test.java.srcDirs = ["test/uws"]

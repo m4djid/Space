@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="adql.db.TestDBChecker" tests="10" skipped="0" failures="0" errors="0" timestamp="2017-07-17T15:31:08" hostname="cds-stage-ms3" time="0.078">
+  <properties/>
+  <testcase name="testSplitTableName" classname="adql.db.TestDBChecker" time="0.001"/>
+  <testcase name="testGeometry" classname="adql.db.TestDBChecker" time="0.033"/>
+  <testcase name="testGroupByWithQualifiedColName" classname="adql.db.TestDBChecker" time="0.004"/>
+  <testcase name="testTypesChecking" classname="adql.db.TestDBChecker" time="0.011"/>
+  <testcase name="testClauseADQLWithNameNull" classname="adql.db.TestDBChecker" time="0.001"/>
+  <testcase name="testNumericOrStringValueExpressionPrimary" classname="adql.db.TestDBChecker" time="0.004"/>
+  <testcase name="testCoordSys" classname="adql.db.TestDBChecker" time="0.011"/>
+  <testcase name="testUDFManagement" classname="adql.db.TestDBChecker" time="0.004"/>
+  <testcase name="testQualifiedName" classname="adql.db.TestDBChecker" time="0.002"/>
+  <testcase name="testColRefWithDottedAlias" classname="adql.db.TestDBChecker" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="adql.translator.TestPostgreSQLTranslator" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-07-17T15:31:09" hostname="cds-stage-ms3" time="0.008">
+  <properties/>
+  <testcase name="testTranslateMathFunction" classname="adql.translator.TestPostgreSQLTranslator" time="0.008"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="uws.service.log.TestDefaultUWSLog" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-07-17T15:35:34" hostname="cds-stage-ms3" time="0.012">
+  <properties/>
+  <testcase name="testCanLog" classname="uws.service.log.TestDefaultUWSLog" time="0.012"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

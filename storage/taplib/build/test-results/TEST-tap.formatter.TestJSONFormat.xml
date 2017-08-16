@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tap.formatter.TestJSONFormat" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-07-17T15:31:14" hostname="cds-stage-ms3" time="0.019">
+  <properties/>
+  <testcase name="testWriteResultWithOverflow" classname="tap.formatter.TestJSONFormat" time="0.016"/>
+  <testcase name="testWriteResult" classname="tap.formatter.TestJSONFormat" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

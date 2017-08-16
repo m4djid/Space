@@ -1,0 +1,5 @@
+----------------------15d7ddffa56
+Content-Disposition: form-data; name="tmp"; filename="tmp.xml"
+Content-Type: text/xml
+
+<?xml version="1.0" encoding="UTF-8"?> <vos:node xmlns:vos="http://www.ivoa.net/xml/VOSpace/v2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="vos:ContainerNode" uri="vos://example.com!nodes/iyapici/toto/Folder">    <vos:properties>        <vos:property uri="vos://example.com!nodes/properties#date" readOnly="true">26-07-2017</vos:property>        <vos:property uri="vos://example.com!nodes/properties#description" readOnly="true">New node created with Aladin</vos:property>    </vos:properties>    <vos:nodes/></vos:node>

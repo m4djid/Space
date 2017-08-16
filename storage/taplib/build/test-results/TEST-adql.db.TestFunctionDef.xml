@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="adql.db.TestFunctionDef" tests="7" skipped="0" failures="0" errors="0" timestamp="2017-07-17T15:31:08" hostname="cds-stage-ms3" time="0.01">
+  <properties/>
+  <testcase name="testCompareToFunctionDef" classname="adql.db.TestFunctionDef" time="0.003"/>
+  <testcase name="testIsNumeric" classname="adql.db.TestFunctionDef" time="0.0"/>
+  <testcase name="testParse" classname="adql.db.TestFunctionDef" time="0.004"/>
+  <testcase name="testToString" classname="adql.db.TestFunctionDef" time="0.0"/>
+  <testcase name="testCompareToADQLFunction" classname="adql.db.TestFunctionDef" time="0.003"/>
+  <testcase name="testIsGeometry" classname="adql.db.TestFunctionDef" time="0.0"/>
+  <testcase name="testIsString" classname="adql.db.TestFunctionDef" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

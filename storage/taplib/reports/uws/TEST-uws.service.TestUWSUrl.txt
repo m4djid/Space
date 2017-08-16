@@ -1,0 +1,17 @@
+Testsuite: uws.service.TestUWSUrl
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0,001 sec
+
+Testcase: initializationError(uws.service.TestUWSUrl):	Caused an ERROR
+org/hamcrest/SelfDescribing
+java.lang.NoClassDefFoundError: org/hamcrest/SelfDescribing
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:760)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.eclipse.ant.internal.launching.remote.EclipseDefaultExecutor.executeTargets(EclipseDefaultExecutor.java:36)
+	at org.eclipse.ant.internal.launching.remote.InternalAntRunner.run(InternalAntRunner.java:460)
+	at org.eclipse.ant.internal.launching.remote.InternalAntRunner.main(InternalAntRunner.java:142)
+Caused by: java.lang.ClassNotFoundException: org.hamcrest.SelfDescribing
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+
+

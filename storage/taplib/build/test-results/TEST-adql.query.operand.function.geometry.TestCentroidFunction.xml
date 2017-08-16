@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="adql.query.operand.function.geometry.TestCentroidFunction" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-07-17T15:31:06" hostname="cds-stage-ms3" time="0.002">
+  <properties/>
+  <testcase name="testIsGeometry" classname="adql.query.operand.function.geometry.TestCentroidFunction" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

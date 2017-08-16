@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tap.metadata.TestMetadataNames" tests="4" skipped="0" failures="0" errors="0" timestamp="2017-07-17T15:31:14" hostname="cds-stage-ms3" time="0.012">
+  <properties/>
+  <testcase name="testTableName" classname="tap.metadata.TestMetadataNames" time="0.003"/>
+  <testcase name="testSchemaName" classname="tap.metadata.TestMetadataNames" time="0.0"/>
+  <testcase name="testXMLMetadata" classname="tap.metadata.TestMetadataNames" time="0.007"/>
+  <testcase name="testColumnName" classname="tap.metadata.TestMetadataNames" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

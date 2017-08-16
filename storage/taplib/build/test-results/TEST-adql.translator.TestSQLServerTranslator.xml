@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="adql.translator.TestSQLServerTranslator" tests="3" skipped="0" failures="0" errors="0" timestamp="2017-07-17T15:31:10" hostname="cds-stage-ms3" time="0.03">
+  <properties/>
+  <testcase name="testJoinWithUSING" classname="adql.translator.TestSQLServerTranslator" time="0.028"/>
+  <testcase name="testNaturalJoin" classname="adql.translator.TestSQLServerTranslator" time="0.001"/>
+  <testcase name="testNaturalJoin2" classname="adql.translator.TestSQLServerTranslator" time="0.001"/>
+  <system-out><![CDATA[ON "aTable"."id"="anotherTable"."id" AND "aTable"."name"="anotherTable"."name"
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

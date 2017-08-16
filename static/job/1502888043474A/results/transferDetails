@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<vos:transfer xmlns:vos="http://www.ivoa.net/xml/VOSpace/v2.1">
+<vos:target>vos://example.com!vospace/iyapici/Gavo.xml</vos:target>
+<vos:direction>pullFromVoSpace</vos:direction>
+<vos:protocol uri="ivo://ivoa.net/vospace/core#httpget">
+<vos:endpoint>http://130.79.128.185/storage/iyapici/Gavo.xml</vos:endpoint>
+</vos:protocol>
+</vos:transfer>

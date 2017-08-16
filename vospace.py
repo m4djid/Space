@@ -75,7 +75,7 @@ class Vospace(Backend):
                 mydb().insertDB(fs().scanner(dictionary['path'], details=1))
                 self.setNode(dictionary['cible'], dictionary['parent'], ancestor, dictionary['properties'])
         else:
-            return "FileExistsError"
+            raise FileExistsError
 
     def setNode(self, target, parent, ancestor, properties):
         if ancestor == ['']:
@@ -104,30 +104,17 @@ class Vospace(Backend):
     def moveNode(self, targetPath, locationPath):
         pass
 
-    def deleteNode(self, targetPath):
+    def deleteNode(self, target, parent, ancestor, targetPath):
         # Delete the node and the subnodes
-        path, target = os.path.split(targetPath)
-        _, parent = os.path.split(path)
-        if not _:
-            # MongoDB ancestor field will not work if
-            # ancestor = ['']
-            ancestor = []
-        else:
-            ancestor = _.split(os.sep)
-        if "storage" in ancestor:
-            ancestor.remove("storage")
-        if os.path.exists(targetPath):
-            # isbusy = mydb().getNode(target, parent, ancestor)
-            # if isbusy:
-            #     if isbusy['busy'] == "False":
-            if mydb().connexion().delete_one({'node': target, 'parent': parent, 'ancestor': ancestor}):
+        if self.getNode(target, parent, ancestor):
+            if mydb().connexion().delete_one({'path': targetPath}):
                 if parent:
                     ancestor.append(parent)
                 if mydb().connexion().delete_many({'parent': target, 'ancestor': ancestor}):
-                    if os.path.isdir(targetPath):
-                        shutil.rmtree(targetPath)
-                    elif os.path.isfile(targetPath):
-                        os.remove(targetPath)
+                    if os.path.isdir(os.path.join("./storage",targetPath)):
+                        shutil.rmtree(os.path.join("./storage",targetPath))
+                    elif os.path.isfile(os.path.join("./storage",targetPath)):
+                        os.remove(os.path.join("./storage",targetPath))
         else:
             return "FileNotFound"
 

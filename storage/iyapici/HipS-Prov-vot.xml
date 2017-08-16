@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VOTABLE version="1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.ivoa.net/xml/VOTable/v1.2"
+  xsi:schemaLocation="http://www.ivoa.net/xml/VOTable/v1.2 http://www.ivoa.net/xml/VOTable/v1.2">
+
+
+<RESOURCE name="HiPS">
+
+<TABLE name="activities" utype="prov:activity" >
+
+     
+     <FIELD name="ident" utype ="prov:activity.id" datatype="char" arraysize="*"/>
+     <FIELD name="label" utype="prov:activity.label"  datatype="char" arraysize="*"/>
+     <FIELD name="start" utype="prov:activity.startTime" datatype="char" arraysize="*" xtype="ISO8601" />
+     <FIELD name ="stop" utype="prov:activity.endTime"  datatype="char" arraysize="*" xtype="ISO8601"  />
+     <FIELD name="annotation" utype="voprov:activity.annotation" dataype="char" arraysize="*"  />
+     <FIELD name="description" utype="voprov:acitivity.activityDescription" datatype="char" arraysize="*"  />  
+
+<DATA>
+<TABLEDATA>
+<TR><TD>EHG1</TD><TD>ESO HiPS generation 1</TD><TD>2016-07-18T09:45:00</TD><TD>2016-07-20T10:00:00</TD><TD>this activity is final generation of HiPS for ESO Mama survey </TD><TD>HipsgenM</TD></TR>
+</TABLEDATA>
+</DATA>      
+</TABLE>
+
+<TABLE name="activity descriptions" utype="prov:activityDescription" >
+
+     
+     <FIELD name="ident" utype ="prov:activitydescription.id" datatype="char" arraysize="*"/>
+     <FIELD name="label" utype="prov:activitydescription.label" datatype="char" arraysize="*"/>
+     <FIELD name="type" utype="prov:activitydescription.type" datatype="char" arraysize="*" />
+     <FIELD name ="subtype" utype="voprov:activitydescription.subtype"  datatype="char" arraysize="*"/>
+     <FIELD name="description_link" utype="voprov:activitydescription.doculink" datatype="char" arraysize="*"  />  
+<DATA>
+<TABLEDATA>
+<TR><TD>HipsgenM</TD><TD>HiPS Generation MEAN</TD><TD>HiPSgen</TD><TD>HIPSgen_MEAN</TD><TD>http://cds.u-strasbg.fr/HiPSGEN-Documentation</TD></TR>
+</TABLEDATA>
+</DATA>      
+</TABLE>
+
+
+<TABLE name="entities" utype="prov:entity" >
+       <FIELD name="ident" utype="prov:entitity.id" datatype = "char" arraysize="*" />
+      <FIELD name="label" utype="prov:entity.label" datatype="char" arraysize="*"  />
+
+      <FIELD name="type" utype="prov:entity.type" datatype="char" arraysize="*" />
+
+       <FIELD name="annotation" utype="voprov:entity.annotation" datatype="char" arraysize="*" />
+
+       <FIELD name="acref" utype="voprov:entity.access_reference" datatype="char" arraysize="*" />
+       <FIELD name="description link" utype="voprov:entity.doculink" datatype="char"   />
+
+       <FIELD name="dataproduct type" utype="voprov:entity.data_productype" datatype="char" arraysize="*"  />
+       <FIELD name="level" utype="voprov:entity.level" datatype="int"   />  
+        <FIELD name="HiPS properties" utype="hips:entity.HiPS_properties" datatype="char" arraysize="*"  /> 
+<DATA>
+<TABLEDATA>
+<TR><TD>ivo://CDS/P/MAMA/ESO-R</TD><TD>ESO-R MAMA HiPS at CDS</TD><TD></TD><TD>This is the HiPS version of ESO Schmidt survey digitized by Mama and processed by CDS</TD><TD>http://cds.u-strasbg.fr/HiPS/P/mama/ESO-R</TD><TD>http://cds.u-strasbg.fr/hips/documentation.html#structure</TD><TD>voprov:hips_pixels</TD><TD>3</TD><TD>http://cds.u-strasbg.fr/hips/p/mama/eso-r/properties.txt</TD></TR>
+<TR><TD>ivo://obspm/gepi/ESO-MAMA</TD><TD>ESO-R Survey Mama GEPI</TD><TD>collection</TD><TD>This is the ESO Schmidt survey collection digitized by MAMA at CAI curated by GEPI</TD><TD>http//obspm.fr/gepi/ESOR-MAMA </TD><TD>http://obspm.fr/gepi/esor-mama.html</TD><TD>image</TD><TD>2</TD><TD></TD></TR>
+</TABLEDATA>
+</DATA>
+</TABLE>
+
+<TABLE name="usedRelationship" utype="voprov:used" >
+      <FIELD name="head" datatype="char" arraysize="*" />
+      <FIELD name="tail" datatype="char" arraysize="*" />
+      <FIELD name="role" datatype="char" utype="used.role" arraysize="*" />
+<DATA>
+<TABLEDATA>
+<TR><TD>EHG1</TD><TD>ivo://obspm/gepi/ESOR-MAMA</TD><TD>voprov:input</TD></TR>
+</TABLEDATA>
+</DATA>
+</TABLE>
+
+<TABLE name="wasGeneratedByRelationship" utype="voprov:wasGeneratedBy" >
+      <FIELD name="head" datatype="char" arraysize="*" />
+      <FIELD name="tail" datatype="char" arraysize="*" />
+      <FIELD name="role" datatype="char" utype="wasGeneratedBy.role" arraysize="*" />
+<DATA>
+<TABLEDATA>
+<TR><TD>ivo://CDS/P/MAMA/ESO-R</TD><TD>EHG1</TD><TD></TD></TR>
+</TABLEDATA>
+</DATA>
+</TABLE>
+
+<TABLE name="agents" utype="prov:agent" >
+       <FIELD name="ident" utype="prov:agent.id" datatype="char" arraysize="*" />
+       <FIELD name="name" utype="prov:agent.name" datatype="char" arraysize="*" />
+       <FIELD name="type" utype="prov:agent.type" datatype="char" arraysize="*" />
+       <FIELD name="contact" utype="voprov:agent.contact" datatype="char" arraysize="*" />
+<DATA>
+<TABLEDATA>
+<TR><TD>ivo://obspm/gepi</TD><TD>GEPI</TD><TD>Organisation</TD><TD>lesidaner@obspm.fr</TD></TR>
+<TR><TD>ivo://obspm/cai</TD><TD>centre analyse des images</TD><TD>Organisation</TD><TD>lesidaner@obspm.fr</TD></TR>
+<TR><TD>buga</TD><TD>Mihaela Buga</TD><TD>Individual</TD><TD>buga@astro.unistra.fr</TD></TR>
+<TR><TD>ivo://cds</TD><TD>Centre de données astronomiques de Strasbourg</TD><TD>Organisation</TD><TD>cdsquestion@astro.unistra.fr</TD></TR>
+<TR><TD>Guibert</TD><TD>Jean Guibert</TD><TD>Individual</TD><TD>guibert@obspm.fr</TD></TR>
+</TABLEDATA>
+</DATA>
+</TABLE>
+
+<TABLE name="WasAttributedToRelationship" utype="voprov:WasAttributedTo" >
+          <FIELD name="head" datatype="char" arraysize="*" />
+          <FIELD name="tail" datatype="char" arraysize="*" />
+          <FIELD name="role" datatype="char" utype="WasAttributedTo.role" arraysize="*" />
+
+<DATA>
+<TABLEDATA>
+<TR><TD>ivo://CDS/P/MAMA/ESO-R</TD><TD>ivo://cds</TD><TD>voprov:creator</TD></TR>
+<TR><TD>ivo://CDS/P/MAMA/ESO-R</TD><TD>buga</TD><TD>voprov:operator</TD></TR>
+<TR><TD>ivo://obspm/gepi/ESO-MAMA</TD><TD>Guibert</TD><TD>voprov:author</TD></TR>
+<TR><TD>ivo://obspm/gepi/ESO-MAMA</TD><TD>ivo://obspm/cai</TD><TD>voprov:creator</TD></TR>
+<TR><TD>ivo://obspm/gepi/ESO-MAMA</TD><TD>ivo://obspm/gepi</TD><TD>voprov:curator</TD></TR>
+</TABLEDATA>
+</DATA>
+</TABLE>
+
+<TABLE name="WasAssociatedWithRelationship" utype="voprov:WasAssociatedWith" >
+          <FIELD name="head" datatype="char" arraysize="*" />
+          <FIELD name="tail" datatype="char" arraysize="*" />
+          <FIELD name="role" datatype="char" utype="WasAssociatedWith.role" arraysize="*" />
+
+<DATA>
+<TABLEDATA>
+<TR><TD>EHG1</TD><TD>buga</TD><TD>voprov:operator</TD></TR>
+<TR><TD>EHG1</TD><TD>ivo://CDS</TD><TD>voprov:creator</TD></TR>
+</TABLEDATA>
+</DATA>
+</TABLE>
+
+</RESOURCE>
+</VOTABLE>
